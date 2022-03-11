@@ -39,7 +39,7 @@ public static class LeetCode
     {
         return ToListNode(ToInt(l1) + ToInt(l2));
 
-        static int ToInt(ListNode listNode)
+        static int ToInt(ListNode? listNode)
         {
             int i = 1;
             int result = 0;
@@ -48,7 +48,7 @@ public static class LeetCode
             {
                 result += listNode.val * i;
                 i *= 10;
-                listNode = listNode.next;
+                listNode = listNode?.next;
             }
 
             return result;
@@ -96,7 +96,7 @@ public static class LeetCode
             h.Add(s[i]);
         }
 
-        var j = LengthOfLongestSubstring(s.Substring(1));
+        var j = LengthOfLongestSubstring(s[1..]);
         return i > j ? i : j;
     }
 }
@@ -104,8 +104,8 @@ public static class LeetCode
 public class ListNode
 {
     public int val;
-    public ListNode next;
-    public ListNode(int val = 0, ListNode next = null)
+    public ListNode? next;
+    public ListNode(int val = 0, ListNode? next = null)
     {
         this.val = val;
         this.next = next;

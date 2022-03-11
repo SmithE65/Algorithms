@@ -70,9 +70,9 @@ public class LeetCodeTests
         var expected = CreateFromArray(new int[] { 7, 0, 8 });
         while (expected != null)
         {
-            Assert.Equal(expected.val, result.val);
+            Assert.Equal(expected.val, result?.val);
             expected = expected.next;
-            result = result.next;
+            result = result?.next;
         }
     }
 
@@ -90,9 +90,9 @@ public class LeetCodeTests
         var expected = CreateFromArray(new int[] { 0 });
         while (expected != null)
         {
-            Assert.Equal(expected.val, result.val);
+            Assert.Equal(expected.val, result?.val);
             expected = expected.next;
-            result = result.next;
+            result = result?.next;
         }
     }
 
@@ -110,9 +110,9 @@ public class LeetCodeTests
         var expected = CreateFromArray(new int[] { 8, 9, 9, 9, 0, 0, 0, 1 });
         while (expected != null)
         {
-            Assert.Equal(expected.val, result.val);
+            Assert.Equal(expected.val, result?.val);
             expected = expected.next;
-            result = result.next;
+            result = result?.next;
         }
     }
 
