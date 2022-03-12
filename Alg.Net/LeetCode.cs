@@ -99,6 +99,38 @@ public static class LeetCode
         var j = LengthOfLongestSubstring(s[1..]);
         return i > j ? i : j;
     }
+
+    /// <summary>
+    /// Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+    /// </summary>
+    /// <param name="nums1"></param>
+    /// <param name="nums2"></param>
+    /// <returns></returns>
+    public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
+    {
+        var merged = new int[nums1.Length + nums2.Length];
+        int j = 0;
+        for (int i = 0; i < nums1.Length; i++)
+        {
+            while (j < nums2.Length && nums2[j] < nums1[i])
+            {
+                merged[i + j] = nums2[j++];
+            }
+            merged[i + j] = nums1[i];
+        }
+        for (; j < nums2.Length; j++)
+        {
+            merged[nums1.Length + j] = nums2[j];
+        }
+
+        if (merged.Length % 2 == 0)
+        {
+            var half = merged.Length / 2;
+            return (merged[half] + merged[half - 1]) / 2d;
+        }
+
+        return merged[merged.Length / 2];
+    }
 }
 
 public class ListNode

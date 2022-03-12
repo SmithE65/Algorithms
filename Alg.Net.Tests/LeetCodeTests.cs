@@ -175,4 +175,36 @@ public class LeetCodeTests
 
     #endregion
 
+    #region FindMedianSortedArrays
+
+    [Fact]
+    public void FindMedianSortedArraysEx1()
+    {
+        // Arrange
+        var a1 = new int[] { 1, 3 };
+        var a2 = new int[] { 2 };
+
+        // Act
+        var result = LeetCode.FindMedianSortedArrays(a1, a2);
+
+        // Assert
+        Assert.Equal(2, result);
+    }
+
+    [Fact]
+    public void FindMedianSortedArraysEx2()
+    {
+        // Arrange
+        var a1 = new int[] { 1, 2 };
+        var a2 = new int[] { 3, 4 };
+
+        // Act
+        var result = LeetCode.FindMedianSortedArrays(a1, a2);
+
+        // Assert
+        Assert.Equal(2.5, result);
+    }
+
+    #endregion
+
 }
