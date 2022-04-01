@@ -131,6 +131,34 @@ public static class LeetCode
 
         return merged[merged.Length / 2];
     }
+
+    public static string CountPairs(Stream stream)
+    {
+        var reader = new StreamReader(stream);
+        var pairCounts = new Dictionary<string, int>();
+
+        while (ReadPair(reader, out var pair))
+        {
+            if (pairCounts.ContainsKey(pair))
+            {
+                ++pairCounts[pair];
+                continue;
+            }
+
+            pairCounts.Add(pair, 1);
+        }
+
+        var result = pairCounts.Where(x => x.Value > 1).Select(x => $"{x.Key}*{x.Value}");
+        return string.Join(',', result);
+
+        static bool ReadPair(StreamReader reader, out string pair)
+        {
+            int char1 = reader.Read();
+            int char2 = reader.Peek();
+            pair = $"{(char)char1}{(char)char2}";
+            return char1 >= 0 && char2 >= 0;
+        }
+    }
 }
 
 public class ListNode

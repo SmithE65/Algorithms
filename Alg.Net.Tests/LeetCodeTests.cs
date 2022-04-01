@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.IO;
+using Xunit;
 
 namespace Alg.Net.Tests;
 
@@ -207,4 +208,13 @@ public class LeetCodeTests
 
     #endregion
 
+    [Theory]
+    [InlineData("ABCAB", "AB*2")]
+    [InlineData("ABCABCBC", "AB*2,BC*3")]
+    public void CountPairsTest(string input, string expected)
+    {
+        using var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(input));
+        var sample1 = LeetCode.CountPairs(stream);
+        Assert.Equal(expected, sample1);
+    }
 }
