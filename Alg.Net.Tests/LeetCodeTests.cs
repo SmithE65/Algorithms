@@ -208,6 +208,8 @@ public class LeetCodeTests
 
     #endregion
 
+    #region CountPairs
+
     [Theory]
     [InlineData("ABCAB", "AB*2")]
     [InlineData("ABCABCBC", "AB*2,BC*3")]
@@ -217,4 +219,6 @@ public class LeetCodeTests
         var sample1 = LeetCode.CountPairs(stream);
         Assert.Equal(expected, sample1);
     }
+
+    #endregion
 }
